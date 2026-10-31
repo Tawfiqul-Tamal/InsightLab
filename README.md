@@ -84,6 +84,11 @@ Data exploration and predictive modeling traditionally require complex Python en
 - **Reproducible 80/20 Train/Test Split**: Deterministic seeded shuffling using Mulberry32 PRNG.
 - **Multi-Algorithm Training**: Concurrently trains and evaluates 3 distinct ML models, identifies the top-performing model, and renders interactive metric comparison charts.
 
+### 🌗 5. Dual-Theme Glassmorphism (Light & Dark Modes)
+- **One-Click Theme Toggle**: Switch effortlessly between Dark Mode and Frosted Light Mode via the navigation toggle button.
+- **Persistent Caching**: Leverages `localStorage` to retain the user's theme preference across browser refreshes and sessions.
+- **Contrast-Preserving Design**: Recharts graphs, correlation matrices, schema tables, and badges dynamically adjust contrast, gridlines, axis colors, and hover states for accessibility in both modes.
+
 ---
 
 ## 🏗️ System Architecture
@@ -152,18 +157,19 @@ flowchart TD
 
 ---
 
-## 💎 Design System (Glassmorphism)
+## 💎 Design System (Dual Glassmorphism)
 
-InsightLab features a custom-engineered glassmorphic aesthetic:
+InsightLab features a custom-engineered dual-mode glassmorphic aesthetic:
 
-| Element | Specification | Visual Effect |
+| Element | Dark Mode Glassmorphism 🌙 | Frosted Light Mode Glassmorphism ☀️ |
 | :--- | :--- | :--- |
-| **Background** | `bg-gradient-to-br from-[#060814] via-[#0b0f2a] to-[#041c24]` | Deep celestial gradient canvas |
-| **Floating Orbs** | 3 multi-color Gaussian blurred orbs (`blur-[130px]`) with staggered float animations | Dynamic ambient lighting |
-| **Glass Cards** | `bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl` | Translucent depth with smooth borders |
-| **Hover Feedback** | `hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.14]` | Tactile elevation and highlight |
-| **Typography** | `Inter` via Next.js Font Optimization with high-contrast text hierarchies | Clean modern readability |
-| **Buttons & Badges** | `bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600` | Vivid electric glow on interaction |
+| **Background Canvas** | `bg-gradient-to-br from-[#060814] via-[#0b0f2a] to-[#041c24]` | `bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#f0fdfa]` |
+| **Ambient Floating Orbs** | 3 saturated Gaussian orbs (`purple-700`, `teal-500`, `blue-700`) | 3 soft pastel Gaussian orbs (`indigo-300`, `teal-200`, `sky-200`) |
+| **Glass Cards** | `bg-white/10 backdrop-blur-xl border border-white/20` | `bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.06)]` |
+| **Primary Typography** | Crisp `text-white/95` with `text-white/60` secondary | Deep `text-slate-900` with `text-slate-600` secondary |
+| **Buttons & Badges** | Violet-to-cyan gradient with electric hover aura | Violet-to-cyan gradient with luminous lift |
+| **Tables & Heatmaps** | Translucent rows with `white/5` hover & glowing cells | Frosted rows with soft slate hover & high-contrast values |
+| **Charts Integration** | Light axis tick text (`fill-white/70`), subtle gridlines | Dark slate axis tick text (`fill-slate-700`), clean gridlines |
 
 ---
 
@@ -178,9 +184,10 @@ InsightLab/
 ├── client/                     # Next.js 14 Frontend Application
 │   ├── app/
 │   │   ├── globals.css         # Tailwind directives, animations & glass styles
-│   │   ├── layout.tsx          # Root layout with Inter font and metadata
+│   │   ├── layout.tsx          # Root layout with ThemeProvider and Inter font
 │   │   └── page.tsx            # Main reactive dashboard page
 │   ├── components/
+│   │   ├── ThemeToggle.tsx     # One-click Sun/Moon light/dark mode switcher
 │   │   ├── UploadZone.tsx      # CSV drag-and-drop zone + sample dataset loader
 │   │   ├── StatCard.tsx        # KPI summary metric cards
 │   │   ├── ColumnTable.tsx     # Schema metadata & top 10 preview tabs
@@ -190,10 +197,12 @@ InsightLab/
 │   │   ├── ModelResults.tsx    # Benchmark leaderboard table & bar chart
 │   │   ├── Skeleton.tsx        # Shimmer loading placeholders
 │   │   └── Toast.tsx           # Glassmorphic error and status notifications
+│   ├── context/
+│   │   └── ThemeContext.tsx    # Global React Theme Context & localStorage sync
 │   ├── public/
 │   │   └── sample.csv          # Bundled student performance sample dataset
 │   ├── types/                  # Strict TypeScript interface declarations
-│   ├── tailwind.config.ts      # Custom keyframes and glass color extensions
+│   ├── tailwind.config.ts      # Custom keyframes and darkMode class extensions
 │   ├── tsconfig.json           # Next.js TypeScript compiler options
 │   └── package.json
 │
@@ -419,6 +428,7 @@ InsightLab is configured for seamless deployment on **Vercel** as a unified mult
 - [x] In-memory statistical profiling and Pearson correlation heatmap
 - [x] Concurrency AutoML training (Regression: RF, CART, MLR | Classification: RF, CART, KNN)
 - [x] Unified Vercel multi-service deployment
+- [x] **Dual-Mode Glassmorphism**: Persistent Light Mode & Dark Mode with one-click Theme Toggle
 - [ ] **Export Model Weights**: Enable one-click download of trained model parameters in JSON format
 - [ ] **PDF Executive Summary**: Download comprehensive analytical reports with chart visualizations
 - [ ] **WebAssembly ML**: Client-side offline inference option using ONNX Runtime Web
