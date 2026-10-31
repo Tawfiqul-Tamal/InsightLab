@@ -20,7 +20,15 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+const getApiBase = (): string => {
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return '';
+  }
+  return 'http://localhost:4000';
+};
 
 export default function DashboardPage() {
   const [currentFile, setCurrentFile] = useState<File | null>(null);
@@ -45,7 +53,8 @@ export default function DashboardPage() {
       const formData = new FormData();
       formData.append('file', file);
 
-      const res = await fetch(`${API_BASE}/api/analyze`, {
+      const apiBase = getApiBase();
+      const res = await fetch(`${apiBase}/api/analyze`, {
         method: 'POST',
         body: formData,
       });
@@ -79,7 +88,8 @@ export default function DashboardPage() {
       formData.append('file', currentFile);
       formData.append('targetColumn', targetColumn);
 
-      const res = await fetch(`${API_BASE}/api/train`, {
+      const apiBase = getApiBase();
+      const res = await fetch(`${apiBase}/api/train`, {
         method: 'POST',
         body: formData,
       });

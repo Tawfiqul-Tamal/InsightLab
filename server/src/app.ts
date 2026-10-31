@@ -33,10 +33,14 @@ app.get('/', (_req: Request, res: Response) => {
   res.json({ message: 'InsightLab API is running', health: '/api/health' });
 });
 app.use('/api', healthRouter);
+app.use('/', healthRouter);
 
 // API Endpoints with Multer file upload
 app.post('/api/analyze', upload.single('file'), handleAnalyze);
+app.post('/analyze', upload.single('file'), handleAnalyze);
+
 app.post('/api/train', upload.single('file'), handleTrain);
+app.post('/train', upload.single('file'), handleTrain);
 
 // Global Error Handler
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
