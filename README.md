@@ -1,6 +1,12 @@
 # 🔮 InsightLab
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-insightlab--kappa.vercel.app-06b6d4?style=for-the-badge&logo=vercel)](https://insightlab-kappa.vercel.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8b5cf6.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 > **Browser-grade in-memory data profiling, interactive analytics, and multi-model machine learning benchmark suite with a modern Glassmorphism UI.**
+
+🔗 **Live Application**: [https://insightlab-kappa.vercel.app](https://insightlab-kappa.vercel.app/)  
+⚡ **API Health Status**: [https://insightlab-kappa.vercel.app/api/health](https://insightlab-kappa.vercel.app/api/health)
 
 InsightLab is an end-to-end full-stack data analytics and machine learning platform. It allows users to upload any tabular CSV file (up to 4MB) to instantly generate automated exploratory data analysis (EDA), statistical metrics, interactive Pearson correlation heatmaps, value distributions, and train multiple in-memory ML algorithms with a single click.
 
@@ -174,8 +180,8 @@ InsightLab is configured for quick deployment on Vercel as two decoupled project
 
 ## 🔗 Live Demo & Screenshots
 
-- **Live URL**: *(Add your deployed Vercel URL here)*
-- **API Health**: *(Add your deployed API URL/api/health here)*
+- 🌐 **Live URL**: [https://insightlab-kappa.vercel.app](https://insightlab-kappa.vercel.app/)
+- ⚡ **API Health**: [https://insightlab-kappa.vercel.app/api/health](https://insightlab-kappa.vercel.app/api/health)
 
 ### Dashboard Preview
 ```
@@ -201,5 +207,10 @@ InsightLab is configured for quick deployment on Vercel as two decoupled project
 
 ---
 
-## 📄 License
-MIT License. Created by [Tawfiqul Tamal](https://github.com/Tawfiqul-Tamal).
+## 👨‍💻 Developed By & License
+
+Developed with ❤️ by **Md. Tawfiqul Islam Tamal**  
+- **GitHub**: [@Tawfiqul-Tamal](https://github.com/Tawfiqul-Tamal)
+- **Portfolio / Live Demo**: [https://insightlab-kappa.vercel.app](https://insightlab-kappa.vercel.app)
+
+Licensed under the MIT License. Copyright © 2024 Md. Tawfiqul Islam Tamal. All rights reserved.

@@ -270,8 +270,25 @@ export default function DashboardPage() {
         )}
 
         {/* Footer */}
-        <footer className="pt-12 pb-6 border-t border-white/10 text-center text-xs text-white/40">
-          <p>InsightLab — Glassmorphism Tabular Analytics & Machine Learning Sandbox</p>
+        <footer className="pt-12 pb-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+          <div className="flex items-center gap-2">
+            <span className="font-semibold text-white/80">InsightLab</span>
+            <span>•</span>
+            <p>© {new Date().getFullYear()} InsightLab. All rights reserved.</p>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span>Developed with</span>
+            <span className="text-rose-400">❤️</span>
+            <span>by</span>
+            <a
+              href="https://github.com/Tawfiqul-Tamal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-cyan-300 hover:text-cyan-200 transition-colors underline underline-offset-2"
+            >
+              Md. Tawfiqul Islam Tamal
+            </a>
+          </div>
         </footer>
       </div>
 
