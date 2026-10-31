@@ -1,0 +1,121 @@
+student_id,gender,study_hours,attendance_percentage,previous_score,parental_education,tutoring,exam_score
+1,Female,6.5,92.0,78,Bachelor,Yes,84
+2,Male,4.0,80.5,65,High School,No,68
+3,Female,8.2,95.0,88,Master,Yes,92
+4,Male,3.2,71.0,55,High School,No,58
+5,Female,5.5,88.0,72,Bachelor,No,76
+6,Male,7.1,90.5,81,Bachelor,Yes,85
+7,Male,2.5,65.0,50,High School,No,52
+8,Female,9.0,98.0,94,Master,Yes,96
+9,Female,4.8,84.0,69,Associate,No,71
+10,Male,6.0,86.5,75,Bachelor,Yes,79
+11,Female,7.8,93.0,85,Bachelor,Yes,89
+12,Male,3.8,75.0,60,High School,No,62
+13,Female,5.2,82.0,70,Bachelor,No,73
+14,Male,8.5,96.0,89,Master,Yes,94
+15,Female,2.8,68.0,52,High School,No,54
+16,Male,6.7,89.0,79,Bachelor,Yes,82
+17,Female,4.5,79.0,66,Associate,No,69
+18,Male,7.4,91.5,83,Bachelor,Yes,86
+19,Female,3.5,74.0,58,High School,No,60
+20,Male,8.8,97.0,91,Master,Yes,95
+21,Female,5.9,87.0,74,Bachelor,No,78
+22,Male,4.2,81.0,67,Associate,No,70
+23,Female,7.6,92.5,84,Bachelor,Yes,88
+24,Male,3.0,70.0,54,High School,No,56
+25,Female,6.2,88.5,76,Bachelor,Yes,80
+26,Male,5.0,83.0,71,Associate,No,74
+27,Female,8.4,95.5,90,Master,Yes,93
+28,Male,2.2,62.0,48,High School,No,50
+29,Female,7.0,90.0,80,Bachelor,Yes,83
+30,Male,4.6,82.5,68,Associate,No,72
+31,Female,6.8,89.5,81,Bachelor,Yes,85
+32,Male,3.6,73.5,59,High School,No,61
+33,Female,8.0,94.0,87,Master,Yes,91
+34,Male,5.4,85.0,73,Bachelor,No,77
+35,Female,4.0,78.0,64,Associate,No,67
+36,Male,7.9,93.5,86,Bachelor,Yes,90
+37,Female,2.6,66.5,51,High School,No,53
+38,Male,6.4,87.5,77,Bachelor,Yes,81
+39,Female,5.7,86.0,75,Associate,No,76
+40,Male,8.7,96.5,92,Master,Yes,95
+41,Female,3.4,72.0,57,High School,No,59
+42,Male,7.2,91.0,82,Bachelor,Yes,87
+43,Female,4.9,83.5,69,Associate,No,72
+44,Male,6.1,86.0,76,Bachelor,No,79
+45,Female,8.6,97.5,93,Master,Yes,96
+46,Male,2.9,69.0,53,High School,No,55
+47,Female,5.8,87.0,74,Bachelor,Yes,80
+48,Male,4.4,80.0,66,Associate,No,68
+49,Female,7.5,92.0,83,Bachelor,Yes,88
+50,Male,3.7,75.0,61,High School,No,63
+51,Female,8.3,95.0,89,Master,Yes,93
+52,Male,5.6,85.5,74,Bachelor,No,77
+53,Female,4.3,79.5,65,Associate,No,68
+54,Male,7.7,93.0,85,Bachelor,Yes,89
+55,Female,2.4,64.0,49,High School,No,51
+56,Male,6.6,88.5,78,Bachelor,Yes,83
+57,Female,5.1,82.5,71,Associate,No,74
+58,Male,8.9,98.0,95,Master,Yes,97
+59,Female,3.3,71.5,56,High School,No,58
+60,Male,7.3,91.5,83,Bachelor,Yes,86
+61,Female,4.7,83.0,68,Associate,No,71
+62,Male,6.3,87.0,77,Bachelor,No,80
+63,Female,8.1,94.5,88,Master,Yes,92
+64,Male,2.7,67.0,51,High School,No,53
+65,Female,6.9,90.5,82,Bachelor,Yes,85
+66,Male,4.1,80.5,66,Associate,No,69
+67,Female,7.7,92.5,84,Bachelor,Yes,88
+68,Male,3.5,74.0,59,High School,No,61
+69,Female,8.5,96.0,91,Master,Yes,94
+70,Male,5.3,84.5,72,Bachelor,No,75
+71,Female,4.6,81.5,67,Associate,No,70
+72,Male,7.8,93.0,86,Bachelor,Yes,89
+73,Female,2.3,63.0,48,High School,No,50
+74,Male,6.5,88.0,79,Bachelor,Yes,82
+75,Female,5.4,85.0,73,Associate,No,76
+76,Male,8.8,97.0,93,Master,Yes,96
+77,Female,3.1,70.5,55,High School,No,57
+78,Male,7.1,90.0,81,Bachelor,Yes,85
+79,Female,4.8,84.0,70,Associate,No,72
+80,Male,6.2,86.5,76,Bachelor,No,79
+81,Female,8.7,97.0,92,Master,Yes,95
+82,Male,2.8,68.5,52,High School,No,54
+83,Female,6.0,87.5,75,Bachelor,Yes,81
+84,Male,4.3,81.0,67,Associate,No,70
+85,Female,7.4,91.5,83,Bachelor,Yes,87
+86,Male,3.9,76.0,62,High School,No,64
+87,Female,8.2,94.0,88,Master,Yes,92
+88,Male,5.5,85.5,73,Bachelor,No,77
+89,Female,4.2,79.0,65,Associate,No,68
+90,Male,7.6,92.5,85,Bachelor,Yes,89
+91,Female,2.5,65.5,50,High School,No,52
+92,Male,6.7,89.0,80,Bachelor,Yes,84
+93,Female,5.0,83.0,71,Associate,No,73
+94,Male,8.6,96.5,91,Master,Yes,94
+95,Female,3.6,73.0,58,High School,No,60
+96,Male,7.0,89.5,80,Bachelor,Yes,84
+97,Female,4.5,82.0,68,Associate,No,71
+98,Male,6.4,87.0,78,Bachelor,No,81
+99,Female,8.4,95.0,90,Master,Yes,93
+100,Male,2.6,66.0,51,High School,No,53
+101,Female,6.3,88.0,77,Bachelor,Yes,82
+102,Male,4.7,82.5,69,Associate,No,72
+103,Female,7.9,93.5,87,Master,Yes,90
+104,Male,3.2,71.0,56,High School,No,58
+105,Female,5.8,86.5,74,Bachelor,No,78
+106,Male,7.5,92.0,84,Bachelor,Yes,88
+107,Female,4.1,80.0,66,Associate,No,69
+108,Male,8.3,95.0,89,Master,Yes,93
+109,Female,2.9,69.5,53,High School,No,55
+110,Male,6.8,89.5,81,Bachelor,Yes,85
+111,Female,5.3,84.0,72,Associate,No,75
+112,Male,8.7,97.0,94,Master,Yes,96
+113,Female,3.7,74.5,60,High School,No,62
+114,Male,7.2,91.0,82,Bachelor,Yes,86
+115,Female,4.4,81.0,67,Associate,No,70
+116,Male,6.1,86.0,76,Bachelor,No,79
+117,Female,8.0,94.5,88,Master,Yes,92
+118,Male,2.7,67.5,52,High School,No,54
+119,Female,6.6,88.5,79,Bachelor,Yes,83
+120,Male,4.9,83.5,70,Associate,No,73
