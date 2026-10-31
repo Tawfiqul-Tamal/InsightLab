@@ -10,6 +10,8 @@ import { TrainPanel } from '../components/TrainPanel';
 import { ModelResults } from '../components/ModelResults';
 import { Toast } from '../components/Toast';
 import { AnalysisSkeleton } from '../components/Skeleton';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 import { AnalyzeResponse, TrainResponse } from '../types';
 import {
   Database,
@@ -24,7 +26,11 @@ const getApiBase = (): string => {
   if (process.env.NEXT_PUBLIC_API_URL) {
     return process.env.NEXT_PUBLIC_API_URL;
   }
-  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  if (
+    typeof window !== 'undefined' &&
+    window.location.hostname !== 'localhost' &&
+    window.location.hostname !== '127.0.0.1'
+  ) {
     return '';
   }
   return 'http://localhost:4000';
@@ -38,6 +44,8 @@ export default function DashboardPage() {
   const [trainData, setTrainData] = useState<TrainResponse | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<'error' | 'success'>('error');
+
+  const { isDark } = useTheme();
 
   const triggerToast = (msg: string, type: 'error' | 'success' = 'error') => {
     setToastMessage(msg);
@@ -126,70 +134,131 @@ export default function DashboardPage() {
     analyzeData?.columns.filter((c) => c.type === 'numeric').length ?? 0;
 
   return (
-    <main className="relative min-h-screen w-full bg-gradient-to-br from-[#060814] via-[#0b0f2a] to-[#041c24] text-white p-4 sm:p-6 md:p-10 overflow-hidden">
+    <main
+      className={`relative min-h-screen w-full transition-colors duration-300 p-4 sm:p-6 md:p-10 overflow-hidden ${
+        isDark
+          ? 'bg-gradient-to-br from-[#060814] via-[#0b0f2a] to-[#041c24] text-white'
+          : 'bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#f0fdfa] text-slate-900'
+      }`}
+    >
       {/* 3 Blurred Floating Gradient Orbs */}
       <div
-        className="pointer-events-none fixed -top-40 -left-40 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-purple-700/30 to-indigo-600/30 blur-[130px] animate-float-slow"
+        className={`pointer-events-none fixed -top-40 -left-40 w-[550px] h-[550px] rounded-full blur-[130px] animate-float-slow transition-all duration-500 ${
+          isDark
+            ? 'bg-gradient-to-tr from-purple-700/30 to-indigo-600/30'
+            : 'bg-gradient-to-tr from-indigo-300/40 to-purple-300/35'
+        }`}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none fixed top-1/4 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-teal-500/25 to-cyan-600/25 blur-[140px] animate-float-reverse"
+        className={`pointer-events-none fixed top-1/4 -right-40 w-[600px] h-[600px] rounded-full blur-[140px] animate-float-reverse transition-all duration-500 ${
+          isDark
+            ? 'bg-gradient-to-bl from-teal-500/25 to-cyan-600/25'
+            : 'bg-gradient-to-bl from-teal-200/40 to-cyan-200/40'
+        }`}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none fixed -bottom-40 left-1/3 w-[500px] h-[500px] rounded-full bg-gradient-to-r from-blue-700/20 to-fuchsia-600/20 blur-[130px] animate-float-drift"
+        className={`pointer-events-none fixed -bottom-40 left-1/3 w-[500px] h-[500px] rounded-full blur-[130px] animate-float-drift transition-all duration-500 ${
+          isDark
+            ? 'bg-gradient-to-r from-blue-700/20 to-fuchsia-600/20'
+            : 'bg-gradient-to-r from-sky-200/40 to-rose-200/30'
+        }`}
         aria-hidden="true"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-8">
         {/* Navigation & Brand Header */}
-        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-2 border-b border-white/10">
+        <header
+          className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-2 border-b transition-colors ${
+            isDark ? 'border-white/10' : 'border-slate-200/90'
+          }`}
+        >
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-violet-600 to-cyan-400 p-[1px] shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-              <div className="w-full h-full rounded-2xl bg-slate-950/80 backdrop-blur-md flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-cyan-300" />
+              <div
+                className={`w-full h-full rounded-2xl backdrop-blur-md flex items-center justify-center ${
+                  isDark ? 'bg-slate-950/80' : 'bg-white/90'
+                }`}
+              >
+                <Sparkles className="w-5 h-5 text-cyan-400" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-black tracking-tight text-white/95">
-                  Insight<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">Lab</span>
+                <h1
+                  className={`text-2xl font-black tracking-tight ${
+                    isDark ? 'text-white/95' : 'text-slate-900'
+                  }`}
+                >
+                  Insight
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-violet-500">
+                    Lab
+                  </span>
                 </h1>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white/70 border border-white/15">
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
+                    isDark
+                      ? 'bg-white/10 text-white/70 border-white/15'
+                      : 'bg-slate-200/80 text-slate-700 border-slate-300'
+                  }`}
+                >
                   Glassmorphism MVP
                 </span>
               </div>
-              <p className="text-xs text-white/60">
+              <p className={`text-xs ${isDark ? 'text-white/60' : 'text-slate-500'}`}>
                 Automated tabular intelligence, live distributions & ML benchmarking
               </p>
             </div>
           </div>
 
-          {analyzeData && (
-            <button
-              onClick={handleReset}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white/80 bg-white/10 hover:bg-white/20 border border-white/20 transition-all hover:text-white"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              Upload New CSV
-            </button>
-          )}
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+
+            {analyzeData && (
+              <button
+                onClick={handleReset}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                  isDark
+                    ? 'text-white/80 bg-white/10 hover:bg-white/20 border-white/20 hover:text-white'
+                    : 'text-slate-700 bg-white/80 hover:bg-white border-slate-300 hover:text-slate-900 shadow-sm'
+                }`}
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Upload New CSV
+              </button>
+            )}
+          </div>
         </header>
 
         {/* Upload Zone */}
         {!analyzeData && (
           <section className="space-y-6 pt-4">
             <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+              <span
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${
+                  isDark
+                    ? 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20'
+                    : 'bg-cyan-100 text-cyan-800 border-cyan-300'
+                }`}
+              >
                 <Sparkles className="w-3.5 h-3.5" /> Zero-config in-memory analysis
               </span>
-              <h2 className="text-4xl sm:text-5xl font-black text-white/95 tracking-tight">
+              <h2
+                className={`text-4xl sm:text-5xl font-black tracking-tight ${
+                  isDark ? 'text-white/95' : 'text-slate-900'
+                }`}
+              >
                 Analyze & Benchmark Datasets{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-indigo-400 to-cyan-500">
                   in Real Time
                 </span>
               </h2>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <p
+                className={`text-sm leading-relaxed ${
+                  isDark ? 'text-white/60' : 'text-slate-600'
+                }`}
+              >
                 Drop your CSV dataset below or test instantly with our curated student performance sample.
                 Get automated column profiling, correlation analysis, and train multi-model benchmarks.
               </p>
@@ -270,9 +339,15 @@ export default function DashboardPage() {
         )}
 
         {/* Footer */}
-        <footer className="pt-12 pb-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <footer
+          className={`pt-12 pb-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs transition-colors ${
+            isDark ? 'border-white/10 text-white/50' : 'border-slate-200 text-slate-500'
+          }`}
+        >
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-white/80">InsightLab</span>
+            <span className={`font-semibold ${isDark ? 'text-white/80' : 'text-slate-800'}`}>
+              InsightLab
+            </span>
             <span>•</span>
             <p>© {new Date().getFullYear()} InsightLab. All rights reserved.</p>
           </div>
@@ -284,7 +359,11 @@ export default function DashboardPage() {
               href="https://github.com/Tawfiqul-Tamal"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-cyan-300 hover:text-cyan-200 transition-colors underline underline-offset-2"
+              className={`font-semibold transition-colors underline underline-offset-2 ${
+                isDark
+                  ? 'text-cyan-300 hover:text-cyan-200'
+                  : 'text-indigo-600 hover:text-indigo-800'
+              }`}
             >
               Md. Tawfiqul Islam Tamal
             </a>
